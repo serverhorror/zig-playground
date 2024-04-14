@@ -26,3 +26,20 @@ test "simple test" {
     try std.testing.expectEqual(@as(i32, 42), list.pop());
 }
 
+test "always succeeds" {
+    try expect(true);
+}
+
+test "assignment stuff" {
+    const constant: i32 = 5;
+    _ = constant;
+
+    var variable: u32 = 5000;
+    _ = variable;
+
+    // @as performs an explicit type coercion
+    const inferred_constant = @as(i32, 5);
+    _ = inferred_constant;
+    var inferred_variable = @as(u32, 5000);
+    _ = inferred_variable;
+}
